@@ -18,7 +18,7 @@ def get_video_files(base_path: str) -> List[str]:
     try:
         for root, _, files in os.walk(base_path):
             for file in files:
-                if set(file.lower().split('.')) & video_extensions:
+                if any(file.lower().endswith(ext) for ext in video_extensions):
                     video_files.append(os.path.join(root, file))
         
         logger.info(f"Found {len(video_files)} video files")
