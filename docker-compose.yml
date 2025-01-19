@@ -1,0 +1,11 @@
+services:
+  optimizarr:
+    build: .
+    container_name: optimizarr
+    volumes:
+      - ./app:/app
+      - /Users/tinkeshwar/Downloads/Raw:/storage/path1
+      - /Users/tinkeshwar/Downloads/Optimized:/optimized
+    environment:
+      - SCAN_INTERVAL=3600
+    restart: always
